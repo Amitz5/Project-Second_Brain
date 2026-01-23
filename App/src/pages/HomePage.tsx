@@ -8,6 +8,7 @@ import Modal from "../components/ModalUi/Modal";
 import Card from "../components/CardUi/Card";
 import { useNavigate } from "react-router-dom";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
 const HomePage = ()=>{
   const navigate = useNavigate();
@@ -109,7 +110,7 @@ const HomePage = ()=>{
       if (res.ok) {
         // Encode your data as a query parameter
         const encodedData = encodeURIComponent(JSON.stringify(jsonData.data));
-        const shareLink = `http://localhost:5173/share/${userId}?data=${encodedData}`;
+        const shareLink = `${FRONTEND_URL}/share/${userId}?data=${encodedData}`;
        
         navigator.clipboard.writeText(shareLink)
         .then(() => {
