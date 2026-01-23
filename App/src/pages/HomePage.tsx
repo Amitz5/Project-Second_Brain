@@ -2,10 +2,12 @@ import ButtonUi from "../components/ButtonUi/Button";
 import SideNavbar from "../components/SideNavbarUi/SideNavbar";
 import ShareIcon from "../components/icons/ShareIcon";
 import PlusIcon from "../components/icons/PlusIcon";
+ //@ts-ignore
 import { useContext, JSX, useEffect, useRef, useState } from "react";
 import Modal from "../components/ModalUi/Modal";
 import Card from "../components/CardUi/Card";
 import { useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const HomePage = ()=>{
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ const HomePage = ()=>{
   const [data1, setData] = useState<any[]>([]);
   const [ytData, setYTData] = useState<any[]>([]);
   const [notionData, setNitionData] = useState<any[]>([]);
+   //@ts-ignore
   const [shareData, setShareData] = useState<any[]>([]);
   const [dataShow, setDataShow] = useState("All");
   let show: JSX.Element | JSX.Element[] = data1;
@@ -33,7 +36,7 @@ const HomePage = ()=>{
         return;
       }
 
-      const res = await fetch("http://localhost:5000/api/v1/content", {
+      const res = await fetch(`${BACKEND_URL}/api/v1/content`, {
         method: "GET",
         headers: {
           "token": token
@@ -92,7 +95,7 @@ const HomePage = ()=>{
         return;
       }
 
-      const res = await fetch(`http://localhost:5000/api/v1/content`, {
+      const res = await fetch(`${BACKEND_URL}/api/v1/content`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const RegisterPage = ()=>{
   const navigate = useNavigate();
 
@@ -22,10 +22,11 @@ const RegisterPage = ()=>{
     }
 
     try{
-     const res = await fetch("http://localhost:5000/api/v1/signup", {
+     const res = await fetch(`${BACKEND_URL}/api/v1/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
+
         },
         credentials: "include",
         body: JSON.stringify(data)
@@ -63,7 +64,7 @@ const RegisterPage = ()=>{
     }
 
     try{
-      const res = await fetch("http://localhost:5000/api/v1/signin", {
+      const res = await fetch(`${BACKEND_URL}/api/v1/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

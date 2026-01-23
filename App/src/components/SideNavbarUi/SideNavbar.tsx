@@ -1,6 +1,8 @@
 import AppLogo from "../icons/AppLogo";
 import NavFields from "./NavFields";
+ //@ts-ignore
 import ShareIcon from "../icons/ShareIcon";
+ //@ts-ignore
 import TwitterIcon from "../icons/TwitterIcon";
 import YoutubeIcon from "../icons/YoutubeIcon";
 import DocumentIcon from "../icons/DocumentIcon";
